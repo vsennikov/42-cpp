@@ -6,12 +6,13 @@
 static bool readNonEmptyLine(const std::string &prompt, std::string &outValue)
 {
 	std::string line;
-	do
+
+	while (line.empty())
 	{
 		std::cout << prompt;
 		if (!std::getline(std::cin, line))
 			return false;
-	} while (line.empty());
+	}
 	outValue = line;
 	return true;
 }
