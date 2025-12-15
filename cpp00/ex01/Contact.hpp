@@ -3,32 +3,31 @@
 
 #include <string>
 
-class Contact
-{
+class Contact {
 public:
-	Contact();
-	~Contact();
+  Contact();
+  ~Contact();
 
-	void setFirstName(const std::string &value);
-	void setLastName(const std::string &value);
-	void setNickname(const std::string &value);
-	void setPhoneNumber(const std::string &value);
-	void setDarkestSecret(const std::string &value);
+  void setFirstName(const std::string &value);
+  void setLastName(const std::string &value);
+  void setNickname(const std::string &value);
+  void setPhoneNumber(const std::string &value);
+  void setDarkestSecret(const std::string &value);
 
-	const std::string &getFirstName() const;
-	const std::string &getLastName() const;
-	const std::string &getNickname() const;
-	const std::string &getPhoneNumber() const;
-	const std::string &getDarkestSecret() const;
+  std::string &getFirstName();
+  std::string &getLastName();
+  std::string &getNickname();
+  std::string &getPhoneNumber();
+  std::string &getDarkestSecret();
 
-	bool isEmpty() const;
+  bool isEmpty();
 
 private:
-	std::string firstName;
-	std::string lastName;
-	std::string nickname;
-	std::string phoneNumber;
-	std::string darkestSecret;
+  std::string firstName;
+  std::string lastName;
+  std::string nickname;
+  std::string phoneNumber;
+  std::string darkestSecret;
 };
 
 #endif

@@ -3,61 +3,34 @@
 Contact::Contact() {}
 Contact::~Contact() {}
 
-void Contact::setFirstName(const std::string &value)
-{ 
-	this->firstName = value; 
+void Contact::setFirstName(const std::string &value) {
+  this->firstName = value;
 }
 
-void Contact::setLastName(const std::string &value) 
-{
-	this->lastName = value; 
+void Contact::setLastName(const std::string &value) { this->lastName = value; }
+
+void Contact::setNickname(const std::string &value) { this->nickname = value; }
+
+void Contact::setPhoneNumber(const std::string &value) {
+  this->phoneNumber = value;
 }
 
-void Contact::setNickname(const std::string &value) 
-{
-	this->nickname = value; 
+void Contact::setDarkestSecret(const std::string &value) {
+  this->darkestSecret = value;
 }
 
-void Contact::setPhoneNumber(const std::string &value) 
-{ 
-	this->phoneNumber = value; 
-}
+std::string &Contact::getFirstName() { return this->firstName; }
 
-void Contact::setDarkestSecret(const std::string &value) 
-{ 
-	this->darkestSecret = value; 
-}
+std::string &Contact::getLastName() { return this->lastName; }
 
-const std::string &Contact::getFirstName() const 
-{ 
-	return this->firstName;
-}
+std::string &Contact::getNickname() { return this->nickname; }
 
-const std::string &Contact::getLastName() const 
-{ 
-	return this->lastName; 
-}
+std::string &Contact::getPhoneNumber() { return this->phoneNumber; }
 
-const std::string &Contact::getNickname() const 
-{ 
-	return this->nickname; 
-}
+std::string &Contact::getDarkestSecret() { return this->darkestSecret; }
 
-const std::string &Contact::getPhoneNumber() const 
-{ 
-	return this->phoneNumber; 
-}
-
-const std::string &Contact::getDarkestSecret() const 
-{ 
-	return this->darkestSecret; 
-}
-
-bool Contact::isEmpty() const
-{
-	return this->firstName.empty()
-		&& this->lastName.empty()
-		&& this->nickname.empty()
-		&& this->phoneNumber.empty()
-		&& this->darkestSecret.empty();
+bool Contact::isEmpty() {
+  return this->firstName.empty() && this->lastName.empty() &&
+         this->nickname.empty() && this->phoneNumber.empty() &&
+         this->darkestSecret.empty();
 }
