@@ -4,7 +4,7 @@
 PhoneBook::PhoneBook() : count(0), nextIndex(0) {}
 PhoneBook::~PhoneBook() {}
 
-void PhoneBook::addContact(const Contact &contact) {
+void PhoneBook::addContact(Contact &contact) {
   this->contacts[this->nextIndex] = contact;
   this->nextIndex = (this->nextIndex + 1) % kMaxContacts;
   if (this->count < kMaxContacts)

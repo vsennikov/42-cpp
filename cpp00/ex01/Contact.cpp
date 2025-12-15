@@ -3,19 +3,15 @@
 Contact::Contact() {}
 Contact::~Contact() {}
 
-void Contact::setFirstName(const std::string &value) {
-  this->firstName = value;
-}
+void Contact::setFirstName(std::string &value) { this->firstName = value; }
 
-void Contact::setLastName(const std::string &value) { this->lastName = value; }
+void Contact::setLastName(std::string &value) { this->lastName = value; }
 
-void Contact::setNickname(const std::string &value) { this->nickname = value; }
+void Contact::setNickname(std::string &value) { this->nickname = value; }
 
-void Contact::setPhoneNumber(const std::string &value) {
-  this->phoneNumber = value;
-}
+void Contact::setPhoneNumber(std::string &value) { this->phoneNumber = value; }
 
-void Contact::setDarkestSecret(const std::string &value) {
+void Contact::setDarkestSecret(std::string &value) {
   this->darkestSecret = value;
 }
 

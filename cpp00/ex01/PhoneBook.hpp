@@ -9,7 +9,7 @@ public:
   PhoneBook();
   ~PhoneBook();
 
-  void addContact(const Contact &contact);
+  void addContact(Contact &contact);
   int size();
   Contact &getContact(int index);
 

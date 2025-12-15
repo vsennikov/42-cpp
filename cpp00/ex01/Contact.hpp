@@ -8,11 +8,11 @@ public:
   Contact();
   ~Contact();
 
-  void setFirstName(const std::string &value);
-  void setLastName(const std::string &value);
-  void setNickname(const std::string &value);
-  void setPhoneNumber(const std::string &value);
-  void setDarkestSecret(const std::string &value);
+  void setFirstName(std::string &value);
+  void setLastName(std::string &value);
+  void setNickname(std::string &value);
+  void setPhoneNumber(std::string &value);
+  void setDarkestSecret(std::string &value);
 
   std::string &getFirstName();
   std::string &getLastName();
