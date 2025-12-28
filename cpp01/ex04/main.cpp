@@ -36,7 +36,6 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  // Read entire file into string
   std::string content;
   std::string line;
   while (std::getline(inFile, line)) {

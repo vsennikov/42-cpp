@@ -1,5 +1,4 @@
 #include "Weapon.hpp"
-#include <iostream>
 
 Weapon::Weapon(std::string type) : type(type) {}
 
