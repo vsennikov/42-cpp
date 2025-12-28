@@ -1,10 +1,9 @@
 #include "Zombie.hpp"
-
-#define N_ZOMBIES 5
+#include <iostream>
 
 int main() {
   std::cout << "--- Creating Horde ---" << std::endl;
-  Zombie *horde = zombieHorde(N_ZOMBIES, "HordeMember");
+  Zombie *horde = zombieHorde(5, "HordeMember");
 
   if (horde == NULL) {
     std::cout << "Allocation failed or invalid size" << std::endl;
@@ -12,7 +11,7 @@ int main() {
   }
 
   std::cout << "\n--- Announcing Horde ---" << std::endl;
-  for (int i = 0; i < N_ZOMBIES; i++) {
+  for (int i = 0; i < 5; i++) {
     horde[i].announce();
   }
 

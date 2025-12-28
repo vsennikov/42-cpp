@@ -1,4 +1,4 @@
-NAME = moar_brainz
+NAME = zombieHorde
 
 SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 OBJS = $(SRCS:.cpp=.o)
