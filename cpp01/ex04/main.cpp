@@ -15,11 +15,12 @@ void replaceString(std::string &content, const std::string &s1,
   size_t found;
 
   while ((found = content.find(s1, search_pos)) != std::string::npos) {
-    bool is_start_boundary = (found == 0) || !std::isalnum(content[found - 1]);
+    bool is_start_boundary = (found == 0) || std::isspace(content[found - 1]);
     bool is_end_boundary = (found + s1.length() == content.length()) ||
-                           !std::isalnum(content[found + s1.length()]);
+                           std::isspace(content[found + s1.length()]);
 
     if (is_start_boundary && is_end_boundary) {
+      result.append(content, last_copied_pos, found - last_copied_pos);
       result.append(s2);
       last_copied_pos = found + s1.length();
       search_pos = last_copied_pos;
