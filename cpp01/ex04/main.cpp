@@ -1,8 +1,12 @@
 #include <fstream>
 #include <iostream>
-#include <string>
 
-#include <cctype>
+bool isValidMatch(const std::string &content, size_t pos, size_t len) {
+  bool is_start_valid = (pos == 0) || std::isspace(content[pos - 1]);
+  bool is_end_valid =
+      (pos + len == content.length()) || std::isspace(content[pos + len]);
+  return is_start_valid && is_end_valid;
+}
 
 void replaceString(std::string &content, const std::string &s1,
                    const std::string &s2) {
@@ -10,25 +14,21 @@ void replaceString(std::string &content, const std::string &s1,
     return;
 
   std::string result;
-  size_t last_copied_pos = 0;
+  size_t last_token_end = 0;
   size_t search_pos = 0;
-  size_t found;
+  size_t found_pos;
 
-  while ((found = content.find(s1, search_pos)) != std::string::npos) {
-    bool is_start_boundary = (found == 0) || std::isspace(content[found - 1]);
-    bool is_end_boundary = (found + s1.length() == content.length()) ||
-                           std::isspace(content[found + s1.length()]);
-
-    if (is_start_boundary && is_end_boundary) {
-      result.append(content, last_copied_pos, found - last_copied_pos);
+  while ((found_pos = content.find(s1, search_pos)) != std::string::npos) {
+    if (isValidMatch(content, found_pos, s1.length())) {
+      result.append(content, last_token_end, found_pos - last_token_end);
       result.append(s2);
-      last_copied_pos = found + s1.length();
-      search_pos = last_copied_pos;
+      last_token_end = found_pos + s1.length();
+      search_pos = last_token_end;
     } else {
-      search_pos = found + 1;
+      search_pos = found_pos + 1;
     }
   }
-  result.append(content, last_copied_pos, std::string::npos);
+  result.append(content, last_token_end, std::string::npos);
   content = result;
 }
 
