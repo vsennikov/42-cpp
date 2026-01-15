@@ -29,19 +29,23 @@ Fixed &Fixed::operator=(const Fixed &rhs) {
   return *this;
 }
 
-int Fixed::getRawBits(void) const { return this->_fixedPointValue; }
+int Fixed::getRawBits(void) const {
+	return this->_fixedPointValue;
+}
 
-void Fixed::setRawBits(int const raw) { this->_fixedPointValue = raw; }
+void Fixed::setRawBits(int const raw) {
+	this->_fixedPointValue = raw;
+}
 
 float Fixed::toFloat(void) const {
-  return (float)this->_fixedPointValue / (float)(1 << _fractionalBits);
+	return (float)this->_fixedPointValue / (float)(1 << _fractionalBits);
 }
 
 int Fixed::toInt(void) const {
-  return this->_fixedPointValue >> _fractionalBits;
+	return this->_fixedPointValue >> _fractionalBits;
 }
 
 std::ostream &operator<<(std::ostream &o, Fixed const &i) {
-  o << i.toFloat();
-  return o;
+	o << i.toFloat();
+	return o;
 }
