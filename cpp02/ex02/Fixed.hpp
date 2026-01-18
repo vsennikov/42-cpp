@@ -15,7 +15,7 @@ public:
   Fixed(const Fixed &src);
   ~Fixed();
 
-  Fixed &operator=(const Fixed &rhs);
+  Fixed &operator=(const Fixed &other);
 
   int getRawBits(void) const;
   void setRawBits(int const raw);
@@ -23,17 +23,17 @@ public:
   float toFloat(void) const;
   int toInt(void) const;
 
-  bool operator>(const Fixed &rhs) const;
-  bool operator<(const Fixed &rhs) const;
-  bool operator>=(const Fixed &rhs) const;
-  bool operator<=(const Fixed &rhs) const;
-  bool operator==(const Fixed &rhs) const;
-  bool operator!=(const Fixed &rhs) const;
+  bool operator>(const Fixed &other) const;
+  bool operator<(const Fixed &other) const;
+  bool operator>=(const Fixed &other) const;
+  bool operator<=(const Fixed &other) const;
+  bool operator==(const Fixed &other) const;
+  bool operator!=(const Fixed &other) const;
 
-  Fixed operator+(const Fixed &rhs) const;
-  Fixed operator-(const Fixed &rhs) const;
-  Fixed operator*(const Fixed &rhs) const;
-  Fixed operator/(const Fixed &rhs) const;
+  Fixed operator+(const Fixed &other) const;
+  Fixed operator-(const Fixed &other) const;
+  Fixed operator*(const Fixed &other) const;
+  Fixed operator/(const Fixed &other) const;
 
   Fixed &operator++(void);
   Fixed operator++(int);
