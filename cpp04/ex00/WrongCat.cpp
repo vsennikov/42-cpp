@@ -1,4 +1,5 @@
 #include "WrongCat.hpp"
+#include <iostream>
 
 WrongCat::WrongCat() : WrongAnimal() {
   this->_type = "WrongCat";
@@ -21,4 +22,6 @@ WrongCat::~WrongCat() {
   std::cout << "WrongCat destructor called" << std::endl;
 }
 
-void WrongCat::makeSound() const { std::cout << "WrongMeow!" << std::endl; }
+void WrongCat::makeSound() const {
+	std::cout << "WrongMeow!" << std::endl;
+}

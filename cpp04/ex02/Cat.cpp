@@ -1,5 +1,6 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
+#include <iostream>
 
 Cat::Cat() : Animal() {
   this->_type = "Cat";
@@ -9,7 +10,7 @@ Cat::Cat() : Animal() {
 
 Cat::Cat(const Cat &other) : Animal(other) {
   std::cout << "Cat copy constructor called" << std::endl;
-  this->_brain = new Brain(*other._brain); // Deep copy
+  this->_brain = new Brain(*other._brain);
 }
 
 Cat &Cat::operator=(const Cat &other) {
@@ -17,7 +18,7 @@ Cat &Cat::operator=(const Cat &other) {
   if (this != &other) {
     Animal::operator=(other);
     delete this->_brain;
-    this->_brain = new Brain(*other._brain); // Deep copy
+    this->_brain = new Brain(*other._brain);
   }
   return *this;
 }
@@ -27,6 +28,6 @@ Cat::~Cat() {
   std::cout << "Cat destructor called" << std::endl;
 }
 
-void Cat::makeSound() const { std::cout << "Meow!" << std::endl; }
-
-Brain *Cat::getBrain() const { return this->_brain; }
+void Cat::makeSound() const {
+	std::cout << "Meow!" << std::endl;
+}

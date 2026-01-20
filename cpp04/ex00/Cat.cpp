@@ -1,4 +1,5 @@
 #include "Cat.hpp"
+#include <iostream>
 
 Cat::Cat() : Animal() {
   this->_type = "Cat";
@@ -17,6 +18,10 @@ Cat &Cat::operator=(const Cat &other) {
   return *this;
 }
 
-Cat::~Cat() { std::cout << "Cat destructor called" << std::endl; }
+Cat::~Cat() {
+	std::cout << "Cat destructor called" << std::endl;
+}
 
-void Cat::makeSound() const { std::cout << "Meow!" << std::endl; }
+void Cat::makeSound() const {
+	std::cout << "Meow!" << std::endl;
+}

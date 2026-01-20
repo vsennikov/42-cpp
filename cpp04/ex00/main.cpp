@@ -3,6 +3,8 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include <iostream>
+
 
 int main() {
   const Animal *meta = new Animal();
@@ -12,7 +14,7 @@ int main() {
   std::cout << j->getType() << " " << std::endl;
   std::cout << i->getType() << " " << std::endl;
 
-  i->makeSound(); // will output the cat sound!
+  i->makeSound();
   j->makeSound();
   meta->makeSound();
 
@@ -28,7 +30,7 @@ int main() {
 
   std::cout << i2->getType() << " " << std::endl;
 
-  i2->makeSound(); // will output the wrong animal sound!
+  i2->makeSound();
   meta2->makeSound();
 
   delete meta2;

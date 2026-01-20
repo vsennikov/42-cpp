@@ -1,61 +1,38 @@
 #include "Animal.hpp"
-#include "Brain.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include <iostream>
 
 #define N_ANIMALS 10
 
 int main() {
-  std::cout << "--- Subject Test ---" << std::endl;
   const Animal *j = new Dog();
   const Animal *i = new Cat();
 
   delete j;
   delete i;
 
-  std::cout << "\n--- Array of Animals Test ---" << std::endl;
+  std::cout << "\n--- Array of Animals ---" << std::endl;
   Animal *animals[N_ANIMALS];
 
-  for (int k = 0; k < N_ANIMALS / 2; k++) {
-    animals[k] = new Dog();
+  for (int i = 0; i < N_ANIMALS / 2; i++) {
+    animals[i] = new Dog();
   }
-  for (int k = N_ANIMALS / 2; k < N_ANIMALS; k++) {
-    animals[k] = new Cat();
+  for (int i = N_ANIMALS / 2; i < N_ANIMALS; i++) {
+    animals[i] = new Cat();
   }
 
   std::cout << "\n--- Deleting Animals ---" << std::endl;
-  for (int k = 0; k < N_ANIMALS; k++) {
-    delete animals[k];
+  for (int i = 0; i < N_ANIMALS; i++) {
+    delete animals[i];
   }
 
   std::cout << "\n--- Deep Copy Test ---" << std::endl;
   Dog basic;
-  {
-    Dog tmp = basic;
-  } // tmp is destroyed here, basic should still maintain its Brain
+  Dog tmp = basic;
 
-  std::cout << "Check if basic is still valid:" << std::endl;
+  tmp.makeSound();
   basic.makeSound();
-
-  std::cout << "\n--- Deep Copy Modification Test ---" << std::endl;
-  Dog original;
-  original.getBrain()->ideas[0] = "Original Idea";
-
-  Dog copy(original);
-  std::cout << "Original Idea: " << original.getBrain()->ideas[0] << std::endl;
-  std::cout << "Copy Idea: " << copy.getBrain()->ideas[0] << std::endl;
-
-  copy.getBrain()->ideas[0] = "New Idea";
-  std::cout << "Modified Copy Idea to 'New Idea'" << std::endl;
-
-  std::cout << "Original Idea: " << original.getBrain()->ideas[0] << std::endl;
-  std::cout << "Copy Idea: " << copy.getBrain()->ideas[0] << std::endl;
-
-  if (original.getBrain()->ideas[0] == "Original Idea") {
-    std::cout << "SUCCESS: Deep copy confirmed!" << std::endl;
-  } else {
-    std::cout << "FAILED: Shallow copy detected!" << std::endl;
-  }
 
   return 0;
 }

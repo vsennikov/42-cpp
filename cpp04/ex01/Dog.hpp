@@ -15,7 +15,6 @@ public:
   ~Dog();
 
   void makeSound() const;
-  Brain *getBrain() const; // Helper for testing
 };
 
 #endif
